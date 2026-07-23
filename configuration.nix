@@ -29,12 +29,11 @@
     };
     
     # proxy
-    #proxy = {
-    #  default = "http://127.0.0.1:10808";
-    #  noProxy = null;
-    #  httpProxy = "http://127.0.0.1:10808";
-    #  httpsProxy = "http://127.0.0.1:10808";
-    #};
+    proxy = {
+      default = "http://127.0.0.1:10808";
+      httpProxy = "http://127.0.0.1:10808";
+      httpsProxy = "http://127.0.0.1:10808";
+    };
   };
 
   # Enable the X11 windowing system.
@@ -58,6 +57,7 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+
   };
 
   # nvim
@@ -155,6 +155,15 @@
     ripgrep
     ffmpeg
     opencode
+
+    hyprpaper
+    hyprpicker
+    hyprlauncher
+    hypridle
+    hyprlock
+    hyprsysteminfo
+    hyprsunset
+    hyprcursor
   ];
 
   # variables
