@@ -27,13 +27,11 @@
 	    "CMCC-vjwbb".psk = "658bgj5ce76szq9";
 	};
     };
-    
-    # proxy
-    proxy = {
-      default = "http://127.0.0.1:10808";
-      httpProxy = "http://127.0.0.1:10808";
-      httpsProxy = "http://127.0.0.1:10808";
-    };
+  };
+
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
   };
 
   # Enable the X11 windowing system.
@@ -107,7 +105,6 @@
     extraGroups = [ 
       "wheel"
       "gamemode"
-      "networkmanager"
     ];
   };
 
@@ -118,7 +115,6 @@
     git
     kitty
     yazi
-    awww
     waypaper
     rofi
     vscode
@@ -150,7 +146,6 @@
     brightnessctl
     hyprshot
     hyprls
-    killall
     fzf
     nautilus
     tree
@@ -213,12 +208,6 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
-  };
-
-  # systemd
-  systemd.services.nix-daemon.environment = {
-    http_proxy = "http://127.0.0.1:10808";
-    https_proxy = "http://127.0.0.1:10808";
   };
 
 

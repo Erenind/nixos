@@ -13,6 +13,7 @@
         modules = [
           ./configuration.nix
           ./hardware-configuration.nix
+	  ./modules/proxy-manager.nix
         ];
       };
     };
