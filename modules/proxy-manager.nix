@@ -102,6 +102,7 @@ in
     pkgs.sing-box
   ];
 
+
   # 2. 确保配置文件目录存在
   systemd.tmpfiles.rules = [
     "d ${configDir} 0755 root root -"
@@ -113,6 +114,10 @@ in
     after = [ "network-online.target" ];
     wants = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
+
+    environment = {
+      ENABLE_DEPRECATED_LEGACY_DNS_FAKEIP_OPTIONS = "true";
+    };
 
     serviceConfig = {
       ExecStart = "${pkgs.sing-box}/bin/sing-box run -c ${configFile}";
