@@ -77,29 +77,6 @@
     enable32Bit = true;
   };
 
-  # nix-ld
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    icu
-    stdenv.cc.cc.lib
-    zlib
-    openssl
-    curl
-    glibc
-    fontconfig
-    freetype
-    libxkbcommon
-    libx11
-    libxcursor
-    libxrandr
-    libXi
-    libXinerama
-    libice
-    libSM
-    libGL
-    glib
-    libxcrypt-legacy
-  ];
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
@@ -164,10 +141,38 @@
     hyprsysteminfo
     hyprsunset
     hyprcursor
-  ];
 
-  # variables
-  environment.variables.QTZONEDIR = "${pkgs.tzdata}/share/zoneinfo";
+
+
+    htop
+    fortune
+    bibata-cursors
+    brightnessctl
+    hyprshot
+    hyprls
+    killall
+    fzf
+    nautilus
+    tree
+    python315
+    steam-run
+
+    # quickshell and Qt support
+    quickshell
+    qt6.qtsvg
+    qt6.qtimageformats
+    qt6.qtmultimedia
+    nerd-fonts.fira-code
+
+    #custom
+    pywal16
+    pywalfox-native
+
+    vscode
+
+    fcitx5
+    kdePackages.fcitx5-chinese-addons
+  ];
 
   # unfree config
   nixpkgs.config.allowUnfree = true;
