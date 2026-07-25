@@ -117,6 +117,7 @@ in
 
     environment = {
       ENABLE_DEPRECATED_LEGACY_DNS_FAKEIP_OPTIONS = "true";
+      ENABLE_DEPRECATED_LEGACY_DNS_SERVERS = "true";
     };
 
     serviceConfig = {
