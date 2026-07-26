@@ -13,7 +13,7 @@
         modules = [
           ./configuration.nix
           ./hardware-configuration.nix
-	  ./modules/nvim.nix
+	  ./modules/nvim/nvim.nix
         ];
       };
     };
