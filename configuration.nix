@@ -1,11 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-    ];
-
   # EFI boot loader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -170,7 +165,7 @@
     vscode
 
     fcitx5
-    kdePackages.fcitx5-chinese-addons
+    fcitx5-pinyin-zhwiki
 
     v2rayn
     xray
