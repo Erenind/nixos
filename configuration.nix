@@ -55,14 +55,6 @@
 
   };
 
-  # nvim
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
   # steam
   programs.steam.enable = true;
   programs.gamemode.enable = true;
@@ -164,9 +156,6 @@
 
     vscode
 
-    fcitx5
-    fcitx5-pinyin-zhwiki
-
     v2rayn
     xray
     sing-box
@@ -229,7 +218,17 @@
   # };
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      enable = true;
+      type = "fcitx5";
+      fcitx5.addons = with pkgs; [
+	qt6Packages.fcitx5-chinese-addons
+	fcitx5-nord
+      ];
+    };
+  };
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
