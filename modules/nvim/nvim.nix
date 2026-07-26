@@ -8,13 +8,14 @@
     viAlias = true;
     vimAlias = true;
 
-    extraLuaConfig = ''
-        ${builtins.readFile ./options.lua}
-        ${builtins.readFile ./transparency.lua}
-    '';
-
     # 配置插件（包含 Lua 插件和普通插件）
     configure = {
+      customRC = ''
+lua << EOF
+${builtins.readFile ./options.lua}
+${builtins.readFile ./transparency.lua}
+EOF
+      '';
       packages.myVimPackage = with pkgs.vimPlugins; {
         start = [
           vim-nix
