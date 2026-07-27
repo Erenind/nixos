@@ -149,6 +149,7 @@
     qt6.qtimageformats
     qt6.qtmultimedia
     nerd-fonts.fira-code
+    qmlformat
 
     #custom
     pywal16
