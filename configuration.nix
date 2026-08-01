@@ -15,12 +15,13 @@
   # network
   networking = {
     hostName = "Ththree";
-    useDHCP = true;
+    useDHCP = lib.mkDefault false;
+    interfaces.wlp0s20f3.useDHCP = true;
     wireless = {
-	enable = true;
-	networks = {
-	    "CMCC-vjwbb".psk = "658bgj5ce76szq9";
-	};
+	    enable = true;
+	    networks = {
+	        "CMCC-vjwbb".psk = "658bgj5ce76szq9";
+	    };
     };
     
     # proxy
@@ -149,7 +150,6 @@
     qt6.qtimageformats
     qt6.qtmultimedia
     nerd-fonts.fira-code
-    qmlformat
 
     #custom
     pywal16
