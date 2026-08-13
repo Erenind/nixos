@@ -45,6 +45,13 @@
 
   # upower
   services.upower.enable = true;
+
+  # udev
+  services.udev.extraRules = ''
+     SUBSYSTEM=="usb", ATTR{idVendor}=="373b", ATTR{idProduct}=="1054", MODE="0666", GROUP="plugdev", TAG+="uaccess"
+
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="1054", MODE="0660", TAG+="uaccess" 
+  '';
  
   # browser
   programs.firefox.enable = true;
@@ -96,6 +103,7 @@
       "wheel"
       "gamemode"
       "networkmanager"
+      "plugdev"
     ];
   };
 
@@ -143,6 +151,7 @@
     tree
     python315
     steam-run
+    chromium
 
     # quickshell and Qt support
     quickshell
@@ -156,10 +165,13 @@
     pywalfox-native
 
     vscode
+    codex
 
     v2rayn
     xray
     sing-box
+
+    keepassxc
   ];
 
   # unfree config
@@ -225,8 +237,8 @@
       enable = true;
       type = "fcitx5";
       fcitx5.addons = with pkgs; [
-	qt6Packages.fcitx5-chinese-addons
-	fcitx5-nord
+	      qt6Packages.fcitx5-chinese-addons
+	      fcitx5-nord
       ];
     };
   };
