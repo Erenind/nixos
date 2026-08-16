@@ -121,6 +121,7 @@
     ripgrep
     ffmpeg
     opencode
+    yazi
 
     hyprpaper
     hyprpicker

@@ -14,7 +14,6 @@
           ./configuration.nix
           ./hardware-configuration.nix
 	      ./modules/nvim/nvim.nix
-          ./modules/yazi/yazi.nix
         ];
       };
     };
