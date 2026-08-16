@@ -46,13 +46,6 @@
   # upower
   services.upower.enable = true;
 
-  # udev
-  services.udev.extraRules = ''
-     SUBSYSTEM=="usb", ATTR{idVendor}=="373b", ATTR{idProduct}=="1054", MODE="0666", GROUP="plugdev", TAG+="uaccess"
-
-    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="373b", ATTRS{idProduct}=="1054", MODE="0660", TAG+="uaccess" 
-  '';
- 
   # browser
   programs.firefox.enable = true;
 
@@ -66,6 +59,19 @@
   # steam
   programs.steam.enable = true;
   programs.gamemode.enable = true;
+
+  programs.bash = {
+    enable = true;
+    interactiveShellInit = "
+      function y() {
+	    local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	    command yazi "$@" --cwd-file="$tmp"
+	    IFS= read -r -d '' cwd < "$tmp"
+	    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
+	    command rm -f -- "$tmp"
+      }
+    ";
+  };
 
   hardware.graphics = {
     enable = true;
@@ -102,8 +108,6 @@
     extraGroups = [ 
       "wheel"
       "gamemode"
-      "networkmanager"
-      "plugdev"
     ];
   };
 
