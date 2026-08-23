@@ -15,14 +15,7 @@
   # network
   networking = {
     hostName = "Ththree";
-    useDHCP = lib.mkDefault false;
-    interfaces.wlp0s20f3.useDHCP = true;
-    wireless = {
-	    enable = true;
-	    networks = {
-	        "CMCC-vjwbb".psk = "658bgj5ce76szq9";
-	    };
-    };
+    networkmanager.enable = true;
     
     # proxy
     proxy = {
@@ -165,6 +158,7 @@
     v2rayn
     xray
     sing-box
+    clash-nyanpasu
 
     keepassxc
   ];
