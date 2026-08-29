@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-
 {
   # EFI boot loader
   boot.loader.systemd-boot.enable = true;
@@ -23,16 +22,13 @@
       httpProxy = "http://127.0.0.1:10808";
       httpsProxy = "http://127.0.0.1:10808";
     };
+
+    firewall.allowedTCPPorts = [ 10810 ];
   };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
  
-  # sddm & auto login 
-  services.displayManager.sddm.enable = true;
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "kyee";
-
   # GVfs for MTP 
   services.gvfs.enable = true;
 
@@ -174,7 +170,6 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
