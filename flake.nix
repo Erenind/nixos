@@ -15,6 +15,7 @@
           ./hardware-configuration.nix
 	      ./modules/nvim/nvim.nix
           ./modules/sddm/sddm.nix
+          ./modules/virt/virt.nix
         ];
       };
     };

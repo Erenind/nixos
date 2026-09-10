@@ -120,6 +120,7 @@
     hyprsysteminfo
     hyprsunset
     hyprcursor
+    xdg-desktop-portal-hyprland
 
 
 
