@@ -4,8 +4,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # 启用 RealtimeKit 服务，为音频应用提供实时调度权限
-  security.rtkit.enable = true;
 
   # time zone
   time.timeZone = "Asia/Shanghai";
@@ -28,6 +26,10 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+
+  # display_manager
+  services.displayManager.sddm.enable = true;
+  services.displayManager.autoLogin.user = "kyee";
  
   # GVfs for MTP 
   services.gvfs.enable = true;
@@ -45,19 +47,9 @@
 
   };
 
-  # steam
+  # game
   programs.steam.enable = true;
   programs.gamemode.enable = true;
-
-  programs.bash = {
-    enable = true;
-  };
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
@@ -98,10 +90,8 @@
     git
     kitty
     waypaper
-    rofi
     vscode
     obsidian
-    waybar
     fastfetch
     lolcat
     wl-clipboard
@@ -115,28 +105,23 @@
     hyprpaper
     hyprpicker
     hyprlauncher
+    hyprsunset
     hypridle
     hyprlock
     hyprsysteminfo
-    hyprsunset
     hyprcursor
-    xdg-desktop-portal-hyprland
 
-
-
-    htop
+    btop
     fortune
     bibata-cursors
     brightnessctl
     hyprshot
     hyprls
-    killall
+    pkill
     fzf
     nautilus
     tree
     python315
-    steam-run
-    chromium
 
     # quickshell and Qt support
     quickshell
@@ -151,13 +136,12 @@
 
     vscode
     codex
-
     v2rayn
     xray
-    sing-box
-    clash-nyanpasu
 
     keepassxc
+
+    alsa-utils
   ];
 
   # unfree config
@@ -170,34 +154,20 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
   # mirror
    nix.settings.substituters = [
      "https://mirrors.ustc.edu.cn/nix-channels/store"
      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+     "https://cache.nixos.org"
    ];
 
-
-
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
+  # sound
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    alsa.enable = true;
+    wireplumber.enable = true;
   };
 
   # systemd
@@ -205,15 +175,6 @@
     http_proxy = "http://127.0.0.1:10808";
     https_proxy = "http://127.0.0.1:10808";
   };
-
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # Select internationalisation properties.
   i18n = {
@@ -227,30 +188,6 @@
       ];
     };
   };
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
 
-
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "25.11";
 }
