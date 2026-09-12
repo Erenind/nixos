@@ -117,7 +117,6 @@
     brightnessctl
     hyprshot
     hyprls
-    pkill
     fzf
     nautilus
     tree
