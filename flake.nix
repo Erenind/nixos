@@ -15,6 +15,7 @@
           ./hardware-configuration.nix
 	      ./modules/nvim/nvim.nix
           ./modules/virt/virt.nix
+          ./modules/sound/sound.nix
         ];
       };
     };
