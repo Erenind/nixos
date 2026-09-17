@@ -3,6 +3,7 @@
   # EFI boot loader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
 
   # time zone
@@ -89,6 +90,7 @@
     wget
     git
     kitty
+    rofi
     waypaper
     vscode
     obsidian
@@ -101,6 +103,7 @@
     ffmpeg
     opencode
     yazi
+    
 
     hyprpaper
     hyprpicker
@@ -159,8 +162,6 @@
      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
      "https://cache.nixos.org"
    ];
-
-  };
 
   # systemd
   systemd.services.nix-daemon.environment = {
