@@ -91,6 +91,7 @@
     git
     kitty
     rofi
+    awww
     waypaper
     vscode
     obsidian
@@ -158,8 +159,8 @@
 
   # mirror
    nix.settings.substituters = [
-     "https://mirrors.ustc.edu.cn/nix-channels/store"
      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+     "https://mirrors.ustc.edu.cn/nix-channels/store"
      "https://cache.nixos.org"
    ];
 
