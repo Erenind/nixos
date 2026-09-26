@@ -9,22 +9,6 @@
   # time zone
   time.timeZone = "Asia/Shanghai";
 
-  
-  # network
-  networking = {
-    hostName = "Ththree";
-    networkmanager.enable = true;
-    
-    # proxy
-    proxy = {
-      default = "http://127.0.0.1:10808";
-      httpProxy = "http://127.0.0.1:10808";
-      httpsProxy = "http://127.0.0.1:10808";
-    };
-
-    firewall.allowedTCPPorts = [ 10810 ];
-  };
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -139,8 +123,6 @@
 
     vscode
     codex
-    v2rayn
-    xray
 
     keepassxc
 
@@ -154,22 +136,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # mirror
-   nix.settings.substituters = [
-     "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-     "https://mirrors.ustc.edu.cn/nix-channels/store"
-     "https://cache.nixos.org"
-   ];
-
-  # systemd
-  systemd.services.nix-daemon.environment = {
-    http_proxy = "http://127.0.0.1:10808";
-    https_proxy = "http://127.0.0.1:10808";
-  };
-
+  
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
