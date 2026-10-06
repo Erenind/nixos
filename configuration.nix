@@ -38,7 +38,6 @@
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "caps:escape";
 
   # font
   fonts = {
@@ -74,19 +73,18 @@
     wget
     git
     kitty
+    htop
     rofi
     awww
     waypaper
     vscode
     obsidian
     fastfetch
-    lolcat
     wl-clipboard
     adwaita-icon-theme
     neovide
     ripgrep
     ffmpeg
-    opencode
     yazi
     
 
@@ -100,7 +98,6 @@
     hyprcursor
 
     btop
-    fortune
     bibata-cursors
     brightnessctl
     hyprshot

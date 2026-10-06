@@ -17,6 +17,7 @@
           ./modules/virt/virt.nix
           ./modules/sound/sound.nix
           ./modules/network/network.nix
+          ./modules/gpu/gpu.nix
         ];
       };
     };
