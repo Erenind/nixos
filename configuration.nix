@@ -17,7 +17,7 @@
   # services.displayManager.autoLogin.user = "kyee";
 
   # getty
-  services.getty.autoLoginUser = "kyee";
+  services.getty.autologinUser = "kyee";
  
   # GVfs for MTP 
   services.gvfs.enable = true;
