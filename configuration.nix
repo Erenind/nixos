@@ -13,8 +13,11 @@
   services.xserver.enable = true;
 
   # display_manager
-  services.displayManager.sddm.enable = true;
-  services.displayManager.autoLogin.user = "kyee";
+  # services.displayManager.sddm.enable = true;
+  # services.displayManager.autoLogin.user = "kyee";
+
+  # getty
+  services.getty.autoLoginUser = "kyee";
  
   # GVfs for MTP 
   services.gvfs.enable = true;
@@ -29,8 +32,9 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-
+    withUWSM = true;
   };
+  programs.uwsm.enable = true;
 
   # game
   programs.steam.enable = true;
@@ -120,6 +124,9 @@
 
     vscode
     codex
+    claude-code
+
+    appimage-run
 
     keepassxc
 
