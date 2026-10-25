@@ -3,6 +3,7 @@
   # EFI boot loader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.timeout = 0;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
 
@@ -13,7 +14,8 @@
   services.xserver.enable = true;
 
   # display_manager
-  # services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = false;
+  services.xserver.displayManager.lightdm.enable = false;
   # services.displayManager.autoLogin.user = "kyee";
 
   # getty
